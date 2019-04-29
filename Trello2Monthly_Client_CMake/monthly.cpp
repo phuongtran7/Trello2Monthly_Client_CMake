@@ -13,9 +13,6 @@ monthly::monthly() : client_(U("https://api.trello.com")), update_client_(U("htt
 void monthly::run()
 {
 	start_console_log();
-	console->info("+++++++++++++++++++++++++++++++++++++++++++++");
-	console->info("+ Trello to Monthly. Current version {} +", version);
-	console->info("+++++++++++++++++++++++++++++++++++++++++++++");
 	process_data();
 	
 }
