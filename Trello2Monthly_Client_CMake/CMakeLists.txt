@@ -10,7 +10,7 @@ target_link_libraries(Trello2Monthly_Client_CMake PRIVATE cpprestsdk::cpprest)
 find_package(spdlog CONFIG REQUIRED)
 target_link_libraries(Trello2Monthly_Client_CMake PRIVATE spdlog::spdlog)
 find_package(RapidJSON CONFIG REQUIRED)
-target_include_directories(main PRIVATE ${RAPIDJSON_INCLUDE_DIRS})
+target_include_directories(Trello2Monthly_Client_CMake PRIVATE ${RAPIDJSON_INCLUDE_DIRS})
 target_link_libraries(Trello2Monthly_Client_CMake PRIVATE rapidjson::rapidjson)
 
 # TODO: Add tests and install targets if needed.
