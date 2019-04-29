@@ -6,7 +6,7 @@ using namespace http;                  // Common HTTP functionality
 using namespace client;          // HTTP client features
 using namespace concurrency::streams;       // Asynchronous streams
 
-monthly::monthly() : client_(U("https://api.trello.com")), update_client_(U("https://api.github.com"))
+monthly::monthly() : client_(U("https://api.trello.com")), update_client_(U("http://192.168.72.253:34568"))
 {
 }
 
