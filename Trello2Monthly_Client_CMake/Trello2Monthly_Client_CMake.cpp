@@ -2,7 +2,7 @@
 //
 
 #include "Trello2Monthly_Client_CMake.h"
-
+#include "monthly.h"
 using namespace std;
 
 int main()
