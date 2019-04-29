@@ -69,6 +69,14 @@ class monthly
 	std::unordered_map<std::string, std::string> create_filename_map() const;
 
 	void process_data();
+
+	bool send_tex_file();
+
+	std::optional<bool> get_pdf();
+
+	std::optional<bool> get_docx();
+
+	bool delete_files();
 public:
 	std::shared_ptr<spdlog::logger> console{};
 	std::shared_ptr<spdlog::logger> file{};
