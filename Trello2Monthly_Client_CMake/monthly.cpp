@@ -14,14 +14,7 @@ void monthly::run()
 {
 	start_console_log();
 	process_data();
-	if (send_tex_file())
-		{
-			get_pdf();
-			get_docx();
-			delete_files();
-			shutdown();
-		}
-	
+	shutdown();
 }
 
 void monthly::shutdown()
@@ -815,9 +808,11 @@ void monthly::process_data()
 	// Finish writing file
 	file->info("\\end{document}");
 
-	// Convert to PDF
-	std::system((fmt::format(R"(pdflatex --interaction=batchmode "{}")", file_name_map_->at("tex"))).c_str());
-
-	// Convert to word if pandoc is installed
-	std::system((fmt::format(R"(pandoc -s "{}" -o "{}")", file_name_map_->at("tex"), file_name_map_->at("docx"))).c_str());
+	if (send_tex_file())
+	{
+		get_pdf();
+		get_docx();
+		delete_files();
+		shutdown();
+	}
 }
