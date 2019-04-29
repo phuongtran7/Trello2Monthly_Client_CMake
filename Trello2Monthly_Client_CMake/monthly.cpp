@@ -48,7 +48,7 @@ std::optional<bool> monthly::get_pdf()
 	temp_builder.append_query(U("task"), U("PDF"));
 	temp_builder.append_query(U("name"), conversions::to_string_t(filename_));
 
-	pplx::task<bool> get_pdf = local_client_.request(methods::GET, temp_builder.to_string())
+	pplx::task<bool> get_pdf = update_client_.request(methods::GET, temp_builder.to_string())
 		// Handle response headers arriving.
 		.then([=](http_response response)
 			{
@@ -89,7 +89,7 @@ std::optional<bool> monthly::get_docx()
 	temp_builder.append_query(U("task"), U("DOCX"));
 	temp_builder.append_query(U("name"), conversions::to_string_t(filename_));
 
-	pplx::task<bool> get_docx = local_client_.request(methods::GET, temp_builder.to_string())
+	pplx::task<bool> get_docx = update_client_.request(methods::GET, temp_builder.to_string())
 		// Handle response headers arriving.
 		.then([=](http_response response)
 			{
@@ -138,7 +138,7 @@ bool monthly::send_tex_file()
 	builder.append_query(U("task"), conversions::to_string_t("TEX"));
 	builder.append_query(U("name"), conversions::to_string_t(filename_));
 
-	pplx::task<bool> put_task = local_client_.request(methods::PUT, builder.to_string(), result)
+	pplx::task<bool> put_task = update_client_.request(methods::PUT, builder.to_string(), result)
 		// Handle response headers arriving.
 		.then([=](http_response response)
 			{
@@ -168,7 +168,7 @@ bool monthly::delete_files()
 	uri_builder builder(U(""));
 	builder.append_query(U("name"), conversions::to_string_t(filename_));
 
-	pplx::task<bool> del_task = local_client_.request(methods::DEL, builder.to_string())
+	pplx::task<bool> del_task = update_client_.request(methods::DEL, builder.to_string())
 		// Handle response headers arriving.
 		.then([=](http_response response)
 			{
