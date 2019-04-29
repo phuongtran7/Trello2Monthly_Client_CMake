@@ -813,6 +813,5 @@ void monthly::process_data()
 		get_pdf();
 		get_docx();
 		delete_files();
-		shutdown();
 	}
 }
