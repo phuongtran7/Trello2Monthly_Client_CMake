@@ -14,17 +14,14 @@ void monthly::run()
 {
 	start_console_log();
 	process_data();
-	// Check whether we succeeded in creating the tex file before proceed
-	if (std::filesystem::exists(fmt::format("{}.tex", filename_)))
-	{
-		if (send_tex_file())
+	if (send_tex_file())
 		{
 			get_pdf();
 			get_docx();
 			delete_files();
 			shutdown();
 		}
-	}
+	
 }
 
 void monthly::shutdown()
