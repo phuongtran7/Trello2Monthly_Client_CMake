@@ -6,8 +6,6 @@ using namespace http;                  // Common HTTP functionality
 using namespace client;          // HTTP client features
 using namespace concurrency::streams;       // Asynchronous streams
 
-namespace fs = std::filesystem;
-
 monthly::monthly() : client_(U("https://api.trello.com")), update_client_(U("https://api.github.com"))
 {
 }
@@ -18,20 +16,8 @@ void monthly::run()
 	console->info("+++++++++++++++++++++++++++++++++++++++++++++");
 	console->info("+ Trello to Monthly. Current version {} +", version);
 	console->info("+++++++++++++++++++++++++++++++++++++++++++++");
-
-	auto update = check_for_update();
-	if (update.has_value())
-	{
-		download_update(update);
-		extract_files();
-		console->info("New update available.");
-		call_updater();
-	}
-	else
-	{
-		fs::remove("Updater.exe.Trello_Old");
-		process_data();
-	}
+	process_data();
+	
 }
 
 void monthly::shutdown()
