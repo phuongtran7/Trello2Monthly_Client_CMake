@@ -9,8 +9,6 @@ find_package(cpprestsdk REQUIRED)
 target_link_libraries(Trello2Monthly_Client_CMake PRIVATE cpprestsdk::cpprest)
 find_package(spdlog CONFIG REQUIRED)
 target_link_libraries(Trello2Monthly_Client_CMake PRIVATE spdlog::spdlog)
-find_package(cpptoml CONFIG REQUIRED)
-target_link_libraries(Trello2Monthly_Client_CMake PRIVATE cpptoml::cpptoml)
 find_package(rapidjson CONFIG REQUIRED)
 target_link_libraries(Trello2Monthly_Client_CMake PRIVATE rapidjson::rapidjson)
 
