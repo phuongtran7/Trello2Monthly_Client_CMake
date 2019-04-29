@@ -4,6 +4,8 @@
 cmake_minimum_required (VERSION 3.8)
 
 project ("Trello2Monthly_Client_CMake")
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Include sub-projects.
 add_subdirectory ("Trello2Monthly_Client_CMake")
