@@ -14,7 +14,6 @@ void monthly::run()
 {
 	start_console_log();
 	process_data();
-	shutdown();
 }
 
 void monthly::shutdown()
